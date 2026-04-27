@@ -106,6 +106,20 @@
         .dados-item strong {
             color: #555;
         }
+        .link-formulario {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.link-formulario:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
     </style>
 </head>
 <body>
@@ -119,8 +133,42 @@
             <input type="email" id="email" name="email" placeholder="exemplo@dominio.com">
         </div>
          <button id="btnConsultar">Consultar Dados</button>
+         <a href="formulario.html" class="link-formulario">Cadastrar no Formulário</a>
     </form>
-    
+    <div id="tabelaResultado">
+        <table class="table table-bordered table-hover table-sm mt-2">
+            <thead>
+                <tr>
+                    <th> ID   </th>
+                    <th> CRIADO EM</th>
+                    <th>  NOME </th>
+                    <th> E-MAIL  </th>
+                    <th> Endereço  </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="coi-id"></td>
+                     <td id="coi-criado_em"> </td>
+                     <td id="coi-nome">   </td>
+                     <td id="coi-email"> </td>
+                    <td id="coi-endereco"> </td>
+
+
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+
+
+
    
 </div>
 

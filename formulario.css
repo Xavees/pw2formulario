@@ -76,7 +76,31 @@ body {
 /* Hover */
 .container button:hover {
     background: #00c6ff;
+
+
 }
+
+.link-consulta {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #4facfe;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.link-consulta:hover {
+    color: #00c6ff;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
 
 /* Responsivo */
 @media (max-width: 400px) {

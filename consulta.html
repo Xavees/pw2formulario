@@ -140,7 +140,7 @@
             <thead>
                 <tr>
                     <th> ID   </th>
-                    <th> CRIADO EM</th>
+                    <th> CRIADO EM </th>
                     <th>  NOME </th>
                     <th> E-MAIL  </th>
                     <th> Endereço  </th>
@@ -166,11 +166,88 @@
     </div>
 
 
-
-
-
-   
 </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function popularTabela(json){
+        if (!json.sucesso || !json.cadastro) return;
+
+        const c = json.cadastro;
+        document.getElementById('coi-id').textContent = c.id;
+        document.getElementById('coi-criado_em').textContent = c.criado_em;
+        document.getElementById('coi-nome').textContent = c.nome;
+        document.getElementById('coi-email').textContent = c.email;
+        document.getElementById('coi-endereco').textContent = c.endereco;
+
+        document.getElementById('tabelaResultado').style.display = 'block';
+
+    }
+
+    document.getElementById('consultaForm').addEventListener('submit' , async function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const btn =  document.getElementById('btnConsultar');
+
+            btn.disabled = true;
+            btn.textContent = 'Consultando...'
+            document.getElementById('tabelaResultado').style.display = 'none';
+
+            try {
+                const formData = new formData();
+                formData.append('email' , email);
+
+                const response = await fetch ('http://localhost/PW2FORMULARIO/consulta.php' , {
+                    method: 'POST' ,
+                    body: formData
+                })
+
+                if (!response.ok) throw new Error (`ERRO HTTP : ${response.status}`);
+
+                const json = await response.json();
+                popularTabela(json);
+             } 
+              catch (err) {
+                alert('Erro ao consultar : ' + err.message);
+              } finally {
+                btn.disabled = false
+                btn.textContent = 'Consultar Dados';
+              };
+
+
+
+
+
+    })
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>

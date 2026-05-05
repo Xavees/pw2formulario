@@ -213,7 +213,7 @@
             document.getElementById('tabelaResultado').style.display = 'none';
 
             try {
-                const formData = new formData();
+                const formData = new FormData();
                 formData.append('email' , email);
 
                 const response = await fetch ('http://localhost/PW2FORMULARIO/consulta.php' , {
